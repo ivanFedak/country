@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './sass/_index.scss';
-import App from './components/app/App';
+import './_index.css';
+import App from './components/App';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <App/>
   </React.StrictMode>,
-  document.querySelector('.wrapper')
+  document.querySelector('#root')
 );

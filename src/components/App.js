@@ -1,9 +1,5 @@
 
-
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
-
-import './app.sass';
+import Header from './Header';
 
 const App = () => {
 
@@ -12,7 +8,6 @@ const App = () => {
         <main className="page">
             <h1>App Js</h1>
         </main>
-        <Footer/>
     </>)
 }
 export default App;
