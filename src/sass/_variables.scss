@@ -1,4 +1,4 @@
-
+ 
 $maxWidthContainer: 1140 + 30;
 
 
@@ -8,8 +8,30 @@ $md3: 767.98;
 $md4: 479.98;
 
 
-// $body-bg: #0f0f0f;
-$main-color: #000000;
+$font-family: "Nunito Sans", sans-serif;
+$fs-sm: 14px;
+$fs-md: 16px;
+$fw-light: 300;
+$fw-normal: 600;
+$fw-bold: 800;
+
+$border-radius: 0.5rem;
+
+body[data-theme='dark']{
+    $main-color: hsl(0,0%,100%);
+    $body-bg: hsl(207,26%,17%);
+    $ui-base: hsl(209,23%,22%);
+
+    $box-shadow: rgba(245,245,245,0.2) 0px 0px 8px
+}
+body[data-theme='light']{
+    $main-color: hsl(200,15%,8%);
+    $body-bg: hsl(0,0,98%);
+    $ui-base: hsl(0,0%,100%);
+
+    $box-shadow: rgba(149,157,165,0.2) 0px 8px 24px
+}
+
 // $txt-color: #fff;
 
 // $white: #fff;
@@ -22,5 +44,3 @@ $main-color: #000000;
 // $border-radius: 30px;
 // $mobile-width: 600px;
 // $tablet-width: 1024px;
-
-$font-family: "Montserrat", sans-serif;
