@@ -62,7 +62,8 @@ ul li {
 a {
   text-decoration: none;
   outline: none;
-  color: unset; }
+  color: var(--main-color); 
+}
 
 input {
   outline: none;
