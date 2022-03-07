@@ -1,13 +1,15 @@
 
 import Header from './Header';
+import Main from './Main';
+import Controls from './Form/Controls';
 
 const App = () => {
 
     return(<>
         <Header/>
-        <main className="page">
-            <h1>App Js</h1>
-        </main>
+        <Main>
+            <Controls/>
+        </Main>
     </>)
 }
 export default App;

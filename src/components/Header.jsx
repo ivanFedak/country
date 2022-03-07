@@ -1,9 +1,7 @@
-
 import {useState,useEffect} from 'react';
 import styled from 'styled-components';
 import Container from './Container';
 import {IoMoon,IoMoonOutline} from 'react-icons/io5'
-
 
 const Header = (props) => {
 
@@ -43,7 +41,7 @@ const Wrapper = styled.div`
     align-items: center;
     padding: 30px 0;
     font-size: 22px;
-    @media (max-width: 767.98px){
+    @media (max-width: 767.98px){ //less
         font-size: 18px
     }
     @media (max-width: 479.98px){
