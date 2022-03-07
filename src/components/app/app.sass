@@ -11,10 +11,32 @@ html,body
   height: 100%
 
 body
+  $main-color: hsl(0,0%,100%)
+  $ui-base: hsl(209,23%,22%)
+  $body-bg: hsl(207,26%,17%)
+  $box-shadow: rgba(245,245,245,0.2) 0px 0px 8px
+
+  background-color: $body-bg
+
   font-family: $font-family
   font-size: $fs-md
   color: $main-color
   font-weight: $fw-light
+
+body[data-theme="light"]
+  $main-color: hsl(200,15%,8%)
+  $ui-base: hsl(0,0%,100%)
+  $body-bg: hsl(0,0,98%)
+  $box-shadow: rgba(149,157,165,0.2) 0px 8px 24px
+
+  background-color: $body-bg
+
+  font-family: $font-family
+  font-size: $fs-md
+  color: $main-color
+  font-weight: $fw-light
+
+
   
 button
   border: none
@@ -57,12 +79,12 @@ iframe
   padding: 0 15px
   margin: 0 auto
 
-.wrapper 
-  min-height: 100%
-  overflow: hidden
-  display: flex
-  flex-direction: column
-  background-color: $body-bg
+// .wrapper 
+//   min-height: 100%
+//   overflow: hidden
+//   display: flex
+//   flex-direction: column
+//   // background-color: $body-bg
 
-.page 
-  flex: 1 1 auto
+// .page 
+//   flex: 1 1 auto
