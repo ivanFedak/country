@@ -25,11 +25,14 @@ html,body {
 }
 body[data-theme="dark"] {
   --main-color: hsl(0,0%,100%);
-  --body-bg: hsl(207,26%,17%);
-  --ui-base: hsl(209,23%,22%);
+  /* --body-bg: hsl(207,26%,17%); */
+  /* --ui-base: hsl(209,23%,22%); */
+  --body-bg: #20262B;
+  --ui-base: #2B3238;
 
   /* --box-shadow: rgba(245,245,245,0.2) 0px 0px 8px; */
-  --box-shadow: none;
+  /* --box-shadow: none; */
+  --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 

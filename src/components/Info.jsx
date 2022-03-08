@@ -7,18 +7,20 @@ const Info = (props) => {
     
     return (
         <Wrapper>
-            <InfoImage src={'https://flagcdn.com/w320/ca.png'} alt={'canada'}/>
+            <InfoImage>
+                <img src={'https://flagcdn.com/w320/ca.png'} alt="canada"/>    
+            </InfoImage>
             {/* <InfoImage src={flag} alt={name}/> */}
-            <div>
+            <InfoBody>
                 <InfoTitle>Ukraine</InfoTitle>
                 {/* <InfoTitle>{name}</InfoTitle> */}
                 <ListGroup>
                     <List>
-                        <ListItem><b>Native Name:</b>ukraine</ListItem>
-                        <ListItem><b>Population:</b>13432</ListItem>
-                        <ListItem><b>Region:</b>Europe</ListItem>
-                        <ListItem><b>Sub Region:</b>Euro</ListItem>
-                        <ListItem><b>Capital:</b>Kiev</ListItem>
+                        <ListItem>Native Name: <span>ukraine</span></ListItem>
+                        <ListItem>Population: <span>13432</span></ListItem>
+                        <ListItem>Region: <span>Europe</span></ListItem>
+                        <ListItem>Sub Region: <span>Euro</span></ListItem>
+                        <ListItem>Capital: <span>Kiev</span></ListItem>
                         {/* <ListItem><b>Native Name:</b>{nativeName}</ListItem>
                         <ListItem><b>Population:</b>{population}</ListItem>
                         <ListItem><b>Region:</b>{region}</ListItem>
@@ -26,23 +28,23 @@ const Info = (props) => {
                         <ListItem><b>Capital:</b>{capital}</ListItem> */}
                     </List>
                     <List>
-                        <ListItem><b>Top Level Domain:</b>.tb</ListItem>
-                        <ListItem><b>Currencies:</b>usd</ListItem>
-                        <ListItem><b>languages:</b>uk</ListItem>
+                        <ListItem>Top Level Domain:<span>.tb</span></ListItem>
+                        <ListItem>Currencies:<span>usd</span></ListItem>
+                        <ListItem>languages:<span>uk</span></ListItem>
                         {/* <ListItem><b>Top Level Domain:</b>{topLevelDomain.map((item => <span key={item}>{item}</span>))}</ListItem>
                         <ListItem><b>Currencies:</b>{currencies}</ListItem>
                         <ListItem><b>languages:</b>{languages}</ListItem> */}
                     </List>
                 </ListGroup>
                 <Meta>
-                    <b>Border Countries</b>
-                    {!borders.length ? <span>Not borders</span> : (
+                    Border Countries:
+                    {!borders.length ? 'Not borders' : (
                         <TagGroup>
                             {borders.map(item => <Tag key={item}>{item}</Tag>)}
                         </TagGroup>
                     )}
                 </Meta>
-            </div>
+            </InfoBody>
         </Wrapper>
     )
 };
@@ -50,71 +52,102 @@ const Info = (props) => {
 export default Info;
 
 const Wrapper = styled.div`
-    display: grid;
-    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 3rem;
-    grid-template-columns: 100%;
-    gap: 2rem;
-    @media (min-width: 767.98px){
-        grid-template-columns: minmax(100px,400px) 1fr;
-        align-items: center;
-        gap: 5rem; 
-    }
-    @media (min-width: 991.98px){
-        grid-template-columns: minmax(400px,600px) 1fr;
+    @media (max-width: 767.98px){//Less 768
+        flex-direction: column;
+        align-items: flex-start;
     }
 `;
-const InfoImage = styled.img`
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+const InfoImage = styled.div`
+    position: relative;
+    flex: 0 1 45%;
+    padding-bottom: 25%;
+    @media (max-width: 767.98px){//Less 768
+        width: 100%;
+        padding-bottom: 59%;
+    }
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+`;
+const InfoBody = styled.div`
+    flex: 1 1 50%;
+    padding-left: 100px;
+    @media (max-width: 991.98px){
+        padding-left: 50px;
+    }
+    @media (max-width: 767.98px){//Less 768
+        padding: 30px 0 0 0;
+    }
 `;
 const InfoTitle = styled.h2`
-    font-size: 43px;
-    font-weight: var(--fw-bold);
+    font-weight: 800;
+    font-size: 33px;
+    margin-bottom: 40px;
+    @media (max-width: 767.98px){//Less 768
+        margin-bottom: 20px;
+    }
 `;
 const ListGroup = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    @media (min-width: 991.98px){
-        flex-direction: row;
-        gap: 4rem;
+    gap: 40px;
+    @media (max-width: 767.98px){//Less 768
+        flex-direction: column;
     }
 `;
-const List = styled.ul``;
+const List = styled.ul`
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+`;
 const ListItem = styled.li`
-    line-height: 1.8;
-    & > b {
-        font-weight: var(--fw-normal);
-        padding-right: 5px;
+    font-weight: var(--fw-normal);
+    margin-bottom: 15px;
+    span {
+        font-weight: 300;
+        padding-left: 15px;
     }
 `;
 const Meta = styled.div`
+    margin-top: 50px;
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 3rem;
-    & > b {
-        font-weight: var(--fw-bold);
+    align-items: center;
+    font-weight: 600;
+    font-size: 17px;
+    @media (max-width: 767.98px){//Less 768
+        flex-direction: column;
+        font-size: 19px;
+        align-items: flex-start
     }
-    @media (min-width: 767.98px){
-        flex-direction: row;
-        align-items: center;
-    }
+    ///
 `;
 const TagGroup = styled.div`
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+    margin-left: 15px;
+    @media (max-width: 767.98px){//Less 768
+        margin: 10px 0 0 0
+    }
 `;
 const Tag = styled.span`
-    padding: 0 1rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
     background-color: var(--ui-base);
-    box-shadow: var(--box-shadow);
-    line-height: 1.5;
-    font-weight: var(--fw-bold);
-    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s ease 0s;
 `;
