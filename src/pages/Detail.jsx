@@ -20,6 +20,7 @@ const Detail = () => {
     if(!country) return <h2>Loading...</h2>
     console.log(country)
 
+    console.log(country)
     // const {name.common} = country;
 
     return (

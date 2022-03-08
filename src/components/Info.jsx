@@ -2,47 +2,40 @@ import styled from 'styled-components';
 
 const Info = (props) => {
 
-    const {name,nativeName,flag,capital,population,region,subregion,topLevelDomain,
-           currencies=[],languages=[],borders=[],push} = props;
+    const {name,flags,capital,population,region,subregion,tld,
+           currencies=[],languages=[],borders=[]} = props;
     
+    const capit = capital ? capital[0] : 'capital undefined';
+    const domains = tld ? tld.map(item => `${item}`) : '.undefined';
+    const native = Object.entries(name.nativeName)[0][1].common;
+    const lang = Object.entries(languages).map(item => item[0]).join(' ');
+    const curren =  Object.entries(currencies)[0][0];
+    
+
     return (
         <Wrapper>
             <InfoImage>
-                <img src={'https://flagcdn.com/w320/ca.png'} alt="canada"/>    
+                <img src={flags.png} alt={name.common}/>    
             </InfoImage>
-            {/* <InfoImage src={flag} alt={name}/> */}
             <InfoBody>
-                <InfoTitle>Ukraine</InfoTitle>
-                {/* <InfoTitle>{name}</InfoTitle> */}
+                <InfoTitle>{name.common}</InfoTitle>
                 <ListGroup>
                     <List>
-                        <ListItem>Native Name: <span>ukraine</span></ListItem>
-                        <ListItem>Population: <span>13432</span></ListItem>
-                        <ListItem>Region: <span>Europe</span></ListItem>
-                        <ListItem>Sub Region: <span>Euro</span></ListItem>
-                        <ListItem>Capital: <span>Kiev</span></ListItem>
-                        {/* <ListItem><b>Native Name:</b>{nativeName}</ListItem>
-                        <ListItem><b>Population:</b>{population}</ListItem>
-                        <ListItem><b>Region:</b>{region}</ListItem>
-                        <ListItem><b>Sub Region:</b>{subregion}</ListItem>
-                        <ListItem><b>Capital:</b>{capital}</ListItem> */}
+                        <ListItem>Native Name: <span>{native}</span></ListItem>
+                        <ListItem>Population: <span>{population}</span></ListItem>
+                        <ListItem>Region: <span>{region}</span></ListItem>
+                        <ListItem>Sub Region: <span>{subregion}</span></ListItem>
+                        <ListItem>Capital: <span>{capit}</span></ListItem>
                     </List>
                     <List>
-                        <ListItem>Top Level Domain:<span>.tb</span></ListItem>
-                        <ListItem>Currencies:<span>usd</span></ListItem>
-                        <ListItem>languages:<span>uk</span></ListItem>
-                        {/* <ListItem><b>Top Level Domain:</b>{topLevelDomain.map((item => <span key={item}>{item}</span>))}</ListItem>
-                        <ListItem><b>Currencies:</b>{currencies}</ListItem>
-                        <ListItem><b>languages:</b>{languages}</ListItem> */}
+                        <ListItem>Top Level Domains:<span>{domains}</span></ListItem>
+                        <ListItem>Currencies:<span>{curren}</span></ListItem>
+                        <ListItem>languages:<span>{lang}</span></ListItem>
                     </List>
                 </ListGroup>
                 <Meta>
                     Border Countries:
-                    {!borders.length ? 'Not borders' : (
-                        <TagGroup>
-                            {borders.map(item => <Tag key={item}>{item}</Tag>)}
-                        </TagGroup>
-                    )}
+                    {!borders.length ? 'Not borders' : (<TagGroup>{borders.map(item => <Tag key={item}>{item}</Tag>)}</TagGroup>)}
                 </Meta>
             </InfoBody>
         </Wrapper>
@@ -67,8 +60,10 @@ const InfoImage = styled.div`
     flex: 0 1 45%;
     padding-bottom: 25%;
     @media (max-width: 767.98px){//Less 768
-        width: 100%;
-        padding-bottom: 59%;
+        width: 80%;
+        padding-bottom: 45%;
+        /* width: 100%;
+        padding-bottom: 59%; */
     }
     img {
         position: absolute;
@@ -84,6 +79,7 @@ const InfoBody = styled.div`
     padding-left: 100px;
     @media (max-width: 991.98px){
         padding-left: 50px;
+        flex: 1 1 70%
     }
     @media (max-width: 767.98px){//Less 768
         padding: 30px 0 0 0;
@@ -109,6 +105,7 @@ const List = styled.ul`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    
 `;
 const ListItem = styled.li`
     font-weight: var(--fw-normal);
@@ -116,6 +113,9 @@ const ListItem = styled.li`
     span {
         font-weight: 300;
         padding-left: 15px;
+        @media (max-width: 991.98px){
+            padding-left: 7px
+        }
     }
 `;
 const Meta = styled.div`
