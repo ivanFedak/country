@@ -5,16 +5,22 @@ import CustomSelect from "./CustomSelect";
 
 const options = [
     {value:'Africa',label:'Africa'},
-    {value:'America',label:'America'},
+    {value:'Americas',label:'Americas'},
     {value:'Asia',label:'Asia'},
     {value:'Europe',label:'Europe'},
     {value:'Oceania',label:'Oceania'},
 ]
 
-const Controls = () => {
+const Controls = ({onSearch}) => {
 
     const [search,setSearch] = useState('');
     const [region,setRegion] = useState('');
+
+    useEffect(() => {
+        const reg = region ? region.value : '';
+        onSearch(search,reg)
+    //eslint-disable-next-line
+    },[search,region])
 
     return (
         <Wrapper>
