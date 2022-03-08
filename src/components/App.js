@@ -2,6 +2,7 @@
 import Header from './Header';
 import Main from './Main';
 import Controls from './Form/Controls';
+import List from './List';
 
 const App = () => {
 
@@ -9,6 +10,7 @@ const App = () => {
         <Header/>
         <Main>
             <Controls/>
+            <List/>
         </Main>
     </>)
 }

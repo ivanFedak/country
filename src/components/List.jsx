@@ -1,14 +1,30 @@
+import {useState,useEffect} from 'react';
 import styled from 'styled-components';
+import useCountry from '../api/countryApi';
+import Card from './Card';
 
-const List = ({children}) => {
+const List = () => {
+
+    const [countryList,setCountryList] = useState([]);
+    const {getAll} = useCountry(); 
+
+    useEffect(() => {
+        getAll().then(setCountryList)
+    //eslint-disable-next-line
+    },[])
+
+
+    const renderCard = countryList.map(item => <Card item={item} key={item.flags.png}/>)
+
     return (
         <Wrapper>
-            {children}
+            {renderCard}
         </Wrapper>
     )
 };
 
 export default List;
+
 
 const Wrapper = styled.section`
     display: grid;
