@@ -1,16 +1,14 @@
-
 import Header from './Header';
+import Routes from '../config/Routes';
 import Main from './Main';
-import Controls from './Form/Controls';
-import List from './List';
+
 
 const App = () => {
-
+    
     return(<>
         <Header/>
         <Main>
-            <Controls/>
-            <List/>
+            <Routes/>
         </Main>
     </>)
 }

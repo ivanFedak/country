@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Card = ({item}) => {
@@ -19,24 +20,25 @@ const Card = ({item}) => {
         }
     ]
 
-    console.log(name)
-    // const link = '';
+    const link = `/detail/${name.common}`;
 
     return (
         <Cardd>
-            <CardImage>
-                <img src={flags.png} alt={name.common}/>
-            </CardImage>
-            <CardBody>
-                <CardTitle>{name.common}</CardTitle>
-                <CardList>
-                    {info.map(item => (
-                        <CardListItem key={item.title}>
-                            <b>{item.title}:</b> {item.info}
-                        </CardListItem>
-                    ))}
-                </CardList>
-            </CardBody>
+            <Link to={link}>
+                <CardImage>
+                    <img src={flags.png} alt={name.common}/>
+                </CardImage>
+                <CardBody>
+                    <CardTitle>{name.common}</CardTitle>
+                    <CardList>
+                        {info.map(item => (
+                            <CardListItem key={item.title}>
+                                <b>{item.title}:</b> {item.info}
+                            </CardListItem>
+                        ))}
+                    </CardList>
+                </CardBody>
+            </Link>
         </Cardd>
     )
 };
