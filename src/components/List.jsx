@@ -15,8 +15,8 @@ const Wrapper = styled.section`
     grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
     width: 100%;
     padding: 1rem;
+    gap: 1rem;
     @media (min-width: 479.98px){//more
-        gap: 1rem;
     }
     @media (min-width: 767.98px){//more
         grid-template-columns: repeat(auto-fill, minmax(195px,1fr));
