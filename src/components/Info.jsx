@@ -49,12 +49,72 @@ const Info = (props) => {
 
 export default Info;
 
-const Wrapper = styled.div``;
-const InfoImage = styled.img``;
-const InfoTitle = styled.h2``;
-const ListGroup = styled.div``;
+const Wrapper = styled.div`
+    display: grid;
+    width: 100%;
+    margin-top: 3rem;
+    grid-template-columns: 100%;
+    gap: 2rem;
+    @media (min-width: 767.98px){
+        grid-template-columns: minmax(100px,400px) 1fr;
+        align-items: center;
+        gap: 5rem; 
+    }
+    @media (min-width: 991.98px){
+        grid-template-columns: minmax(400px,600px) 1fr;
+    }
+`;
+const InfoImage = styled.img`
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+`;
+const InfoTitle = styled.h2`
+    font-size: 43px;
+    font-weight: var(--fw-bold);
+`;
+const ListGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @media (min-width: 991.98px){
+        flex-direction: row;
+        gap: 4rem;
+    }
+`;
 const List = styled.ul``;
-const ListItem = styled.li``;
-const Meta = styled.div``;
-const TagGroup = styled.div``;
-const Tag = styled.span``;
+const ListItem = styled.li`
+    line-height: 1.8;
+    & > b {
+        font-weight: var(--fw-normal);
+        padding-right: 5px;
+    }
+`;
+const Meta = styled.div`
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    & > b {
+        font-weight: var(--fw-bold);
+    }
+    @media (min-width: 767.98px){
+        flex-direction: row;
+        align-items: center;
+    }
+`;
+const TagGroup = styled.div`
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+`;
+const Tag = styled.span`
+    padding: 0 1rem;
+    background-color: var(--ui-base);
+    box-shadow: var(--box-shadow);
+    line-height: 1.5;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+`;
