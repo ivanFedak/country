@@ -33,4 +33,8 @@ const Input = styled.input.attrs({
     margin-left: 2rem;
     background-color: var(--body-bg);
     color: var(--main-color);
+    &::placeholder{
+        color: var(--main-color);
+        opacity: 0.5;
+    }
 `;
