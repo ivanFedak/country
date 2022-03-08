@@ -28,7 +28,8 @@ body[data-theme="dark"] {
   --body-bg: hsl(207,26%,17%);
   --ui-base: hsl(209,23%,22%);
 
-  --box-shadow: rgba(245,245,245,0.2) 0px 0px 8px;
+  /* --box-shadow: rgba(245,245,245,0.2) 0px 0px 8px; */
+  --box-shadow: none;
 }
 
 

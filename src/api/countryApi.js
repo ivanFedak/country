@@ -4,8 +4,9 @@ const useCountry = () => {
 
     const {request,clearError,process} = useHttp();
 
-    const getAll = () => {
-        const url = 'all';
+    const getAll = (filters = []) => {
+        // const url = `all?fields=`;
+        const url = `all?fields=${filters.join(',')}`;
         return request(url);
     };
 

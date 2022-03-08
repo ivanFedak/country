@@ -9,7 +9,8 @@ const List = () => {
     const {getAll} = useCountry(); 
 
     useEffect(() => {
-        getAll().then(setCountryList)
+        const filters = ['name','capital','flags','population','region'];
+        getAll(filters).then(setCountryList)
     //eslint-disable-next-line
     },[])
 
@@ -28,15 +29,23 @@ export default List;
 
 const Wrapper = styled.section`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(265px,1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
+    @media (min-width: 479.98px){
+        gap: 1rem;
+    }
+    /* @media (min-width: 644.98px){//more
+        grid-template-columns: repeat(auto-fill, minmax(20px,1fr));
+    } */
     @media (min-width: 767.98px){//more
+        grid-template-columns: repeat(auto-fill, minmax(195px,1fr));
         gap: 3rem;
-        padding: 2.5rem;
+        padding: 1.5rem;
     }
     @media (min-width: 991.98px){//more
+        grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
         gap: 4rem;
+        padding: 2rem;
     }
 `;

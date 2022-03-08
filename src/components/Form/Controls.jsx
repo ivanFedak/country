@@ -31,6 +31,8 @@ const Controls = () => {
 export default Controls;
 
 const Wrapper = styled.div`
+    position: relative;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
