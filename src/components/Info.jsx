@@ -6,7 +6,7 @@ const Info = (props) => {
            currencies=[],languages=[],borders=[]} = props;
     
     const capit = capital ? capital[0] : 'capital undefined';
-    const domains = tld ? tld.map(item => `${item}`) : '.undefined';
+    const domains = tld ? tld.map(item => item) : '.undefined';
     const native = Object.entries(name.nativeName)[0][1].common;
     const lang = Object.entries(languages).map(item => item[0]).join(' ');
     const curren =  Object.entries(currencies)[0][0];

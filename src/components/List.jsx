@@ -2,14 +2,16 @@ import styled from 'styled-components';
 import Skeleton from '../services/Skeleton';
 
 const List = ({renderCard,process}) => {
-    console.log(process)
 
-    return <Wrapper><Skeleton/></Wrapper>
-    return (
-        <Wrapper>
-            {renderCard}
-        </Wrapper>
-    )
+    console.log(process);
+    if(process === 'loading') return <Wrapper><Skeleton/></Wrapper>
+    else{
+        return (
+            <Wrapper>
+                {renderCard}
+            </Wrapper>
+        )
+    }
 };
 
 export default List;

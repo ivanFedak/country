@@ -27,11 +27,12 @@ export default Skeleton;
 const Skelet = styled.div`
     position: relative;
     display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: 9px 6px;
-    border-radius: 0px 10px 10px 0px;
+    /* padding: 9px 6px; */
+    border-radius: var(--border-radius);
     overflow: hidden;
-    background-color: #fff;
+    box-shadow: var(--box-shadow);
     &::before {
         content: '';
         position: absolute;
@@ -47,29 +48,28 @@ const Skelet = styled.div`
     }
 `;
 const Poster = styled.div`
-    flex: 0 1 147px;
-    height: 225px;
+    width: 100%;
+    height: 141px;
     background-color: var(--ui-base);
     animation: loadOp 0.5s linear infinite alternate;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: var(--box-shadow);
 `
 const Content = styled.div`
-    flex: 0 1 70%;
-    height: 100%;
-    margin-left: 5px;
-    background-color: #fff;
-    border-radius: 0px 10px 10px 0px;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--body-bg);
 `;
 const Title = styled.div`
-    height: 60px;
+    height: 25px;
     background-color: var(--ui-base);
-    border-radius: 0px 10px 0px 0px;
     animation: loadOp 0.5s linear infinite alternate;
+    box-shadow: var(--box-shadow);
 `;
 const Text = styled.div`
     margin-top: 20px;
-    // height: 64.1%
-    height: 145px;
+    height: 80px;
     background-color: var(--ui-base);
-    border-radius: 0px 0px 10px 0px;
     animation: loadOp 0.5s linear infinite alternate;
+    box-shadow: var(--box-shadow);
 `;
