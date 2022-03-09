@@ -9,7 +9,7 @@ const Home = () => {
     const [countryList,setCountryList] = useState([]);
     const [filteredCountry,setFilteredCountry] = useState([]);
 
-    const {getAll} = useCountry();
+    const {getAll,process} = useCountry();
 
     const hangeSearch = (search,region) => {
         let data = [...countryList];
@@ -32,7 +32,7 @@ const Home = () => {
 
     return (<>
         <Controls onSearch={hangeSearch}/>
-        <List renderCard={renderCard}/>
+        <List renderCard={renderCard} process={process}/>
     </>)
 };
 

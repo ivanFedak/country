@@ -45,6 +45,24 @@ body[data-theme="light"]{
   --box-shadow: rgba(149,157,165,0.2) 0px 8px 24px;
 }
 
+@keyframes load {
+  0% {
+    left: 0
+  }
+  100% {
+    left: 110%
+  }
+}
+
+@keyframes loadOp {
+  0%{
+    opacity: 1
+  }
+  100%{
+    opacity: 0.3
+  }
+}
+
 body {
   background-color: var(--body-bg);
 

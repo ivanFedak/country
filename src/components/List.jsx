@@ -1,6 +1,10 @@
 import styled from 'styled-components';
+import Skeleton from '../services/Skeleton';
 
-const List = ({renderCard}) => {
+const List = ({renderCard,process}) => {
+    console.log(process)
+
+    return <Wrapper><Skeleton/></Wrapper>
     return (
         <Wrapper>
             {renderCard}
