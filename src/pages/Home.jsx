@@ -23,8 +23,12 @@ const Home = () => {
 
     useEffect(() => {
         const filters = ['name','capital','flags','population','region'];
-        getAll(filters).then(setCountryList)
-        getAll(filters).then(setFilteredCountry)
+        getAll(filters)
+            .then(setCountryList)
+            .catch(e => console.log(`Error in (countryList),error - ${e}`));
+        getAll(filters)
+            .then(setFilteredCountry)
+            .catch(e => console.log(`Error in (filteredCountry),error - ${e}`));
     //eslint-disable-next-line
     },[])
 

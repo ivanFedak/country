@@ -16,5 +16,7 @@ const Wrapper = styled.div`
     align-items: center;
     margin-top: 60px;
     font-size: 22px;
-    font-weight: var(--fw-normal)
+    font-weight: var(--fw-normal);
+    text-align: center;
+    color: #ff7373;
 `
