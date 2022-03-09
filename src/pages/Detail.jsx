@@ -2,6 +2,7 @@ import {useState,useEffect} from "react";
 import {useParams,useHistory} from "react-router-dom";
 import useCountry from "../api/countryApi";
 import Info from "../components/Info";
+import Loading from "../services/Loading";
 import {Button} from "../components/Button";
 import {IoArrowBack} from 'react-icons/io5';
 
@@ -17,11 +18,9 @@ const Detail = () => {
     //eslint-disable-next-line
     },[name]);
 
-    if(!country) return <h2>Loading...</h2>
-    console.log(country)
+    if(!country) return <Loading/>
 
-    console.log(country)
-    // const {name.common} = country;
+
 
     return (
         <div>
