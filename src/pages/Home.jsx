@@ -8,8 +8,12 @@ const Home = () => {
 
     const [countryList,setCountryList] = useState([]);
     const [filteredCountry,setFilteredCountry] = useState([]);
-
     const {getAll,process} = useCountry();
+
+    useEffect(() => {
+        getData();
+    //eslint-disable-next-line
+    },[])
 
     const hangeSearch = (search,region) => {
         let data = [...countryList];
@@ -21,7 +25,7 @@ const Home = () => {
         setFilteredCountry(data);
     }
 
-    useEffect(() => {
+    const getData = () => {
         const filters = ['name','capital','flags','population','region'];
         getAll(filters)
             .then(setCountryList)
@@ -29,8 +33,7 @@ const Home = () => {
         getAll(filters)
             .then(setFilteredCountry)
             .catch(e => console.log(`Error in (filteredCountry),error - ${e}`));
-    //eslint-disable-next-line
-    },[])
+    }
 
     const renderCard = filteredCountry.map(item => <Card item={item} key={item.flags.png}/>)
 

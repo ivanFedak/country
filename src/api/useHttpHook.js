@@ -10,7 +10,7 @@ const useHttp = () => {
         try{
             const response = await fetch(setting);
             const data = await response.json();
-            setProcess('idle')
+            setProcess('confirmed')
             return data;
         }catch(e){
             setProcess('error');

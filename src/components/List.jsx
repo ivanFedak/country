@@ -4,7 +4,8 @@ import ErrorCatch from '../services/ErrorCatch';
 
 const List = ({renderCard,process,length}) => {
 
-    if(process === 'loading' && !length) return <Wrapper><Skeleton/></Wrapper>
+    
+    if(process === 'loading') return <Wrapper><Skeleton/></Wrapper>
     else if(process === 'error') return <ErrorCatch/>
 
 
