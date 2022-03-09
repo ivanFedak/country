@@ -36,7 +36,9 @@ const Home = () => {
 
     return (<>
         <Controls onSearch={hangeSearch}/>
-        <List renderCard={renderCard} process={process}/>
+        <List renderCard={renderCard} process={process} 
+              length={filteredCountry.length}
+        />
     </>)
 };
 

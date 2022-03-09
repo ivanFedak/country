@@ -2,12 +2,10 @@ import {useState,useCallback} from "react";
 import configApi from "./configApi";
 
 const useHttp = () => {
-
     const [process,setProcess] = useState('idle');
 
-    const request = useCallback(async (url,params) => {
+    const request = useCallback(async (url) => {
         setProcess('loading');
-        // const setting = configApi._baseUrl + url + '/' + params;
         const setting = configApi._baseUrl + url;
         try{
             const response = await fetch(setting);

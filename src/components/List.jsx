@@ -2,18 +2,17 @@ import styled from 'styled-components';
 import Skeleton from '../services/Skeleton';
 import ErrorCatch from '../services/ErrorCatch';
 
-const List = ({renderCard,process}) => {
+const List = ({renderCard,process,length}) => {
 
-    console.log(process);
-    if(process === 'loading') return <Wrapper><Skeleton/></Wrapper>
+    if(process === 'loading' && !length) return <Wrapper><Skeleton/></Wrapper>
     else if(process === 'error') return <ErrorCatch/>
-    else{
-        return (
-            <Wrapper>
-                {renderCard}
-            </Wrapper>
-        )
-    }
+
+
+    return (
+        <Wrapper>
+            {renderCard}
+        </Wrapper>
+    )
 };
 
 export default List;
