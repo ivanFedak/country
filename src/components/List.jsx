@@ -21,7 +21,7 @@ const Wrapper = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px,1fr));
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     gap: 1rem;
     @media (min-width: 479.98px){//more
     }
