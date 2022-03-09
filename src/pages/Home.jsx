@@ -15,6 +15,11 @@ const Home = () => {
     //eslint-disable-next-line
     },[])
 
+    useEffect(() =>{
+        hangeSearch();
+    //eslint-disable-next-line
+    },[countryList])
+
     const hangeSearch = (search,region) => {
         let data = [...countryList];
         if(region)
@@ -30,9 +35,9 @@ const Home = () => {
         getAll(filters)
             .then(setCountryList)
             .catch(e => console.log(`Error in (countryList),error - ${e}`));
-        getAll(filters)
-            .then(setFilteredCountry)
-            .catch(e => console.log(`Error in (filteredCountry),error - ${e}`));
+        // getAll(filters)
+        //     .then(setFilteredCountry)
+        //     .catch(e => console.log(`Error in (filteredCountry),error - ${e}`));
     }
 
     const renderCard = filteredCountry.map(item => <Card item={item} key={item.flags.png}/>)
