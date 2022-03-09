@@ -30,7 +30,7 @@ const Detail = () => {
             <Button onClick={goBack}>
                 <IoArrowBack/> Back
             </Button>
-            <Info {...country}/>
+            <Info push={push} {...country}/>
         </div>
     )
 };

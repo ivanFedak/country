@@ -1,6 +1,11 @@
+import {useState,useEffect} from 'react';
 import styled from 'styled-components';
+import useCountry from '../api/countryApi';
 
 const Info = (props) => {
+
+    const [neighbors,setNeighbors] = useState([]);
+    const {getByCode} = useCountry();
 
     const {name,flags,capital,population,region,subregion,tld,
            currencies=[],languages=[],borders=[]} = props;
@@ -10,8 +15,13 @@ const Info = (props) => {
     const native = Object.entries(name.nativeName)[0][1].common;
     const lang = Object.entries(languages).map(item => item[0]).join(' ');
     const curren =  Object.entries(currencies)[0][0];
-    
 
+    useEffect(()=>{
+        getByCode(borders)
+            // .then(res => console.log(res))
+            .then(res => setNeighbors(res.map(item => item.name.common)))
+    },[borders])
+    
     return (
         <Wrapper>
             <InfoImage>
@@ -35,7 +45,11 @@ const Info = (props) => {
                 </ListGroup>
                 <Meta>
                     Border Countries:
-                    {!borders.length ? 'Not borders' : (<TagGroup>{borders.map(item => <Tag key={item}>{item}</Tag>)}</TagGroup>)}
+                    {!borders.length ? ' Not borders' : (
+                        <TagGroup>
+                            {neighbors.map(item => <Tag onClick={() => props.push(`/detail/${item}`)} key={item}>{item}</Tag>)}
+                        </TagGroup>
+                    )}
                 </Meta>
             </InfoBody>
         </Wrapper>
@@ -150,4 +164,7 @@ const Tag = styled.span`
     background-color: var(--ui-base);
     border-radius: 2px;
     transition: all 0.3s ease 0s;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    font-size: 13px;
 `;
