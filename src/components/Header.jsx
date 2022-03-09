@@ -6,12 +6,21 @@ import {IoMoon,IoMoonOutline} from 'react-icons/io5'
 
 const Header = () => {
 
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark');
 
-    const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+
+    const toggleTheme = () => {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+        localStorage.setItem('theme',theme === 'light' ? 'dark' : 'light');
+    }
 
     useEffect(()=>{
         document.body.setAttribute('data-theme', theme);
+        if(!localStorage.getItem('theme')){
+            localStorage.setItem('theme',theme);
+        }else{
+            document.body.setAttribute('data-theme', localStorage.getItem('theme'))
+        }
     },[theme])
 
     return(
