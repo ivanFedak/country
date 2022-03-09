@@ -6,9 +6,8 @@ const Info = (props) => {
 
     const [neighbors,setNeighbors] = useState([]);
     const {getByCode} = useCountry();
-
     const {name,flags,capital,population,region,subregion,tld,
-           currencies=[],languages=[],borders=[]} = props;
+        currencies=[],languages=[],borders=[]} = props;
     
     const capit = capital ? capital[0] : 'capital undefined';
     const domains = tld ? tld.map(item => item) : '.undefined';
@@ -17,9 +16,12 @@ const Info = (props) => {
     const curren =  Object.entries(currencies)[0][0];
 
     useEffect(()=>{
-        getByCode(borders)
-            // .then(res => console.log(res))
-            .then(res => setNeighbors(res.map(item => item.name.common)))
+        if(borders.length > 0){
+            getByCode(borders)
+                .then(res => setNeighbors(res.map(item => item.name.common)))
+                .catch(e => console.log(`Error in borders,error - ${e}`))
+        }
+    //eslint-disable-next-line
     },[borders])
     
     return (
@@ -76,8 +78,6 @@ const InfoImage = styled.div`
     @media (max-width: 767.98px){//Less 768
         width: 80%;
         padding-bottom: 45%;
-        /* width: 100%;
-        padding-bottom: 59%; */
     }
     img {
         position: absolute;

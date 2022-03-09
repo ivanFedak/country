@@ -7,6 +7,9 @@ const List = ({renderCard,process,length}) => {
     
     if(process === 'loading') return <Wrapper><Skeleton/></Wrapper>
     else if(process === 'error') return <ErrorCatch/>
+    else if(!length && process === 'confirmed'){
+        return <ErrorMessage>There's no such a country</ErrorMessage>
+    }
 
 
     return (
@@ -36,4 +39,10 @@ const Wrapper = styled.section`
         gap: 4rem;
         padding: 2rem;
     }
+`;
+const ErrorMessage = styled.div`
+  font-size: 22px;
+  padding: 10px 5px;
+  font-weight: var(--fw-normal);
+  color: #c75858
 `;
